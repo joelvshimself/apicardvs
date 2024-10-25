@@ -48,7 +48,7 @@ router.post('/ask', async (req, res) => {
     });
 
     const sortedMessages = _.sortBy(messages, (m) => new Date(m.createdAt).getTime());
-    const botResponse = sortedMessages[1]?.payload?.text || 'El bot no respondió.';
+    const botResponse = sortedMessages[1]?.payload?.text || 'Please Try again';
 
     // Enviar la respuesta al cliente
     return res.json({ question, response: botResponse });
