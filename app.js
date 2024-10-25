@@ -15,7 +15,7 @@ app.use(express.json());
 
 // Middleware de CORS
 app.use(cors({
-  origin: 'http://localhost:8080', // Permitir solo solicitudes desde este origen
+  origin: '*', // Permitir solo solicitudes desde este origen
   methods: ['GET', 'POST'], // Métodos permitidos
   allowedHeaders: ['Content-Type', 'Authorization'], // Encabezados permitidos
 }));
