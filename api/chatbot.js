@@ -48,7 +48,9 @@ router.post('/ask', async (req, res) => {
     });
 
     const sortedMessages = _.sortBy(messages, (m) => new Date(m.createdAt).getTime());
-    const botResponse = sortedMessages[1]?.payload?.text || 'Please Try again';
+    //const botResponse = sortedMessages[1]?.payload?.text || 'Please Try again...';
+    const botResponse = sortedMessages.slice(1).map(m => m.payload?.text).filter(Boolean).join(' ') || 'Please try again...';
+
 
     // Enviar la respuesta al cliente
     return res.json({ question, response: botResponse });
